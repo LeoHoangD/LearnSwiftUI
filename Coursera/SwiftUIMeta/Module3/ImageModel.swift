@@ -1,0 +1,35 @@
+//
+//  ImageModel.swift
+//  SwiftUIMeta
+//
+//  Created by Huệ Huệ on 2/4/26.
+//
+
+import Foundation
+import SwiftUI
+
+struct ImageModel: Identifiable {
+    let id = UUID()
+    let name: String
+    let color: Color
+    let zIndex: Double
+    
+    init(name: String, color: Color, zIndex: Double) {
+        self.name = name
+        self.color = color
+        self.zIndex = zIndex
+    }
+    init(name: String, color: Color) {
+        self.name = name
+        self.color = color
+        self.zIndex = 0
+    }
+    init(name: String) {
+        let colors: [Color] = [
+            .red, .pink, .cyan, .orange, .purple, .yellow
+        ]
+        self.name = name
+        self.color = colors.randomElement()!
+        self.zIndex = 0
+    }
+}
